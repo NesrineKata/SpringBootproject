@@ -1,0 +1,36 @@
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="logo">
+                    <h1><a href="/">TNShop</a></h1>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <form role="form">
+                    <div class="input-group search">
+                        <input class="form-control" type="search" name="searchQuery" placeholder="search">
+                        <span class="input-group-append">
+                            <button class="btn btn-search" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="login col-md-2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="/"><i class="cart-icon fa fa-shopping-cart"></i>
+                            <span class='badge badge-warning' id='lblCartCount'>0</span>
+                        </a>
+                    </div>
+                    <div *ngIf="showLoginButton" class="col-md-6"><a href="/login" class="btn">Login</a></div>
+                    <div *ngIf="!showLoginButton" class="col-md-6"><a href="/login" class="btn">{{userAccount}}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
