@@ -23,7 +23,8 @@ import { ProductsComponent } from './products/products.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot([ {path:'', component: HomeComponent}]),
+    RouterModule.forRoot([ {path:'', component: HomeComponent},
+    {path:'products/category/:id', component: ProductsComponent} ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

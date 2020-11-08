@@ -13,6 +13,6 @@ export class ProductService {
      return this.http.get<Product[]>("http://localhost:8080/products/get");
    }
    getProductsByCat(id:number){
-    return this.http.get<Product[]>("http://localhost:8080/products/getprodbycat/"+id);
+    return this.http.get<Product[]>('http://localhost:8080/products/getprodbycat/'+id);
   }
 }

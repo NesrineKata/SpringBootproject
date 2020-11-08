@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li *ngFor="let c of categories"class="category nav-item dropdown" >
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="products/category/{{c.id}}">
                             {{c.libelle}}
                         </a>
                     </li>                
