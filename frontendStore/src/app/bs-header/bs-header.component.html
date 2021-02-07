@@ -10,9 +10,9 @@
             <div class="col-md-7">
                 <form role="form">
                     <div class="input-group search">
-                        <input class="form-control" type="search" name="searchQuery" placeholder="search">
+                        <input class="form-control"  type="search" name="searchQuery" [(ngModel)]="car"placeholder="search">
                         <span class="input-group-append">
-                            <button class="btn btn-search" type="submit">
+                            <button class="btn btn-search" (click)="searchForMe()"type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
                         </span>
@@ -22,12 +22,16 @@
             <div class="login col-md-2">
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="/"><i class="cart-icon fa fa-shopping-cart"></i>
-                            <span class='badge badge-warning' id='lblCartCount'>0</span>
+                        <a (click)="routeMe()"><i class="cart-icon fa fa-shopping-cart"></i>
+                            <span class='badge badge-warning' id='lblCartCount'></span>
                         </a>
                     </div>
-                    <div *ngIf="showLoginButton" class="col-md-6"><a href="/login" class="btn">Login</a></div>
-                    <div *ngIf="!showLoginButton" class="col-md-6"><a href="/login" class="btn">{{userAccount}}</a></div>
+                    <div *ngIf="!currentUser" class="col-md-6"><a href="/login" class="btn">Login</a></div>
+                    <!--<div *ngIf="currentUser" class="col-md-6"><a href="" class="btn">{{currentUser.username}}</a></div>
+                    -->
+                    <div *ngIf="currentUser" class="col-md-6" ><a (click)="logout()" class="btn"href="/">Logout</a></div>
+                    
+               
                 </div>
             </div>
         </div>

@@ -1,10 +1,14 @@
+import { Category } from "./Category";
+
 export class Product {
     productId:number;
     productName:string ;
     productPrice:number ;
     url:string;
-    idCategory:number;
+    stock:number;
+    avaibility :number;
+    category:number;
     //retrievedImage: string;
-
-
+    
+  
   }

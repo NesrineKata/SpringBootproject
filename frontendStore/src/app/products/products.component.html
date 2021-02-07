@@ -2,19 +2,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="title">Products of Category  {{selectedCatId}}</h3>                
+                <h3 class="title">List of  {{category.libelle}}</h3>                
             </div>
-            <!-- Item #1 -->
             <div class="col-md-3 col-sm-4" *ngFor="let p of products ">
                 <div class="item">
+                
                     <a href="#"><img class="item-image" src="{{p.url}}" alt="" /></a>
                     <h6><a href="#">{{p.productName}}</a></h6>
                     <hr />
                     <div class="item-price float-left">${{p.productPrice}}</div>
-                    <button class="btn float-right">Add to Cart</button>
+                    <button  (click)="addToCart(p)"class="btn float-right">Add to Cart</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!---
+<div class="item">
+    <a href="#"><img class="item-image" src="{{p.url}}" alt="" /></a>
+    <h6><a href="#">{{p.productName}}</a></h6>
+    <hr />
+    <div class="item-price float-left">${{p.productPrice}}</div>
+    <button class="btn float-right"(click)="addToCart()" >Add to Cart</button>
+   
+</div>
+-->

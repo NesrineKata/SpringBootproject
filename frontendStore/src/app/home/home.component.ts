@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../entity/Product';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { JwtResponse } from '../entity/JwtResponse';
+import { Product} from '../entity/Product';
+import { ProductInOrder} from '../entity/ProductInOrder';
+
+import { CartService } from '../service/cart.service';
+
 import { ProductService } from '../service/product.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +18,41 @@ import { ProductService } from '../service/product.service';
 export class HomeComponent implements OnInit {
 
   products:Array<Product>;
- // $productsRecieved;
-  constructor(private prodService:ProductService) {}
+  // $productsRecieved;
+  info :any;
+  currentUserSubscription: Subscription;
+  name$;
+  name: string;
+  currentUser: JwtResponse;
+  constructor(private router:Router,public userService:UserService,private prodService:ProductService,private api:CartService) {}
   ngOnInit(){
+    this.name$ = this.userService.name$.subscribe(aName => this.name = aName);
+    this.currentUserSubscription = this.userService.currentUser.subscribe(user => {
+        this.currentUser = user;
+     
+    });
     this.prodService.getProducts().subscribe(
       response => this.handleSuccessfulResponse(response),
     );
+    
+
   }
 
   handleSuccessfulResponse(response) {
     this.products = response;
+    console.log(this.products);
   }
+  addToCart(e) {
+    if(this.currentUser){
+    this.api.addItem(e).subscribe(res => {
+      console.log(res);
+    })
+    }
+    else 
+      this.router.navigateByUrl("/login");
+  }
+ 
+  
 
  /*  ngOnInit(){}
    this.prodService.getProducts().subscribe(

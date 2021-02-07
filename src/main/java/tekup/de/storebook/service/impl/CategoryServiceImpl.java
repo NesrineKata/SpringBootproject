@@ -19,7 +19,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public void createCategory(Category c) {
 		catRepos.save(c);
 	}
-	public Category deleteCategory(int id) {
+	public Category deleteCategory(long id) {
 		Category c1=catRepos.getOne(id);
 		catRepos.deleteById(id);
 		return c1;

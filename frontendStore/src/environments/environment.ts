@@ -2,9 +2,15 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { Role } from "src/app/entity/Role";
+
 export const environment = {
-  production: false
+  production: false,
+  stripe_key: 'pk_test_51IFiXoAE6Ixp3fxxIVwgn4XHav4gOoAZk0gC5IJylVU01Ul9ABwRLhs13nA6lEo3fZkonyKy1YsjySFODOqdqtKL00PXOmBSr9'
 };
+export const apiUrl = '//localhost:8080/api/auth';
+export const storeUrl = '//localhost:8080/api/store';
+export const adminUrl ='//localhost:8080/api/admin';
 
 /*
  * For easier debugging in development mode, you can import the following file

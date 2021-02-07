@@ -14,7 +14,23 @@
                         <a class="nav-link" href="products/category/{{c.id}}">
                             {{c.libelle}}
                         </a>
-                    </li>                
+                    </li>  
+                    <!--*ngIf="info.authorities==='admin'"-->
+                    <li *ngIf="isAdmin"  class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a href="admin/users" class="dropdown-item">Users</a>
+                            <a href="admin/produits" class="dropdown-item">Products</a>
+                            <a href="admin/categories" class="dropdown-item">Orders</a>
+                        </div>
+                    </li>
+                    <li *ngIf="currentUser&&!isAdmin" class="category nav-item dropdown"> <a class="nav-link" href="/profile">
+                        Profile
+                    </a> </li>
+
                 </ul>
             </div>
         </nav>

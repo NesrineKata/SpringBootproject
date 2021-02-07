@@ -2,17 +2,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="title">Popular Deals</h3>                
+                <h3 class="title">TN SHOP Products</h3>                
             </div>
             <!-- Item #1 -->
             <div class="col-md-3 col-sm-4" *ngFor="let p of products ">
-                <div class="item">
+<!--
+                <app-products [p]="p" (productAddToCart)="addToCart($event)">Loading...</app-products>
+                
+--><div class="item">
                     <a href="#"><img class="item-image" src="{{p.url}}" alt="" /></a>
                     <h6><a href="#">{{p.productName}}</a></h6>
                     <hr />
                     <div class="item-price float-left">${{p.productPrice}}</div>
-                    <button class="btn float-right">Add to Cart</button>
+                    <button class="btn float-right"(click)="addToCart(p)" >Add to Cart</button>
+                   
                 </div>
+            
             </div>
         </div>
     </div>

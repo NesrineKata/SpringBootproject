@@ -8,6 +8,6 @@ import tekup.de.storebook.model.User;
 public interface CategoryService {
 	public List<Category> getCategories(); 
 	public void createCategory(Category c);
-	public Category deleteCategory(int id);
+	public Category deleteCategory(long id);
 	
 }

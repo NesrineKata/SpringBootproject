@@ -1,0 +1,43 @@
+//Post user
+http://localhost:8080/api/auth/register
+{
+    
+    "username": "katathequeen",
+    "name": "nesrine",
+    "email": "admin@gmail.com",
+    "password": "nesrine"
+}
+
+//Post login
+http://localhost:8080/api/auth/login
+{   
+    "username": "katathequeen",
+    "password": "nesrine"
+}
+
+//example of signup
+
+{
+    "id": 1,
+    "username": "katathequeen",
+    "email": "admin@gmail.com",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "tokenType": "Bearer",
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYXRhdGhlcXVlZW4iLCJpYXQiOjE2MDk3NTYxNzcsImV4cCI6MTYwOTc1NjIzN30.hzGDZeNG0LDIsQJBnw1SEjghJfY2bXHzudMAZeC9LeYurBveVq5jdnQkM1X75A22ie1xzvjj-jhbgOSP6Ja8xQ"
+}
+
+POST//http://localhost:8080/api/store/cart/add
+
+{
+	"quantity":1,
+	"productId":1
+}
+
+//http://localhost:8080/api/store/cart/getAll 
+//Get All carts 
+{
+"cartId":1,
+"productId":1
+}

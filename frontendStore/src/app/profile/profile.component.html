@@ -1,0 +1,41 @@
+<h1>Profile</h1>
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Username</th> 
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>{{currentUser.username}}</td>
+          <td>{{user.email}}</td>
+
+          <td>
+            <button type="button" class="btn btn-primary" (click)="edit(user.id)">Edit Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order Amount</th>
+          <th>Date</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let o of orders">
+            <td>{{o.amount}}</td>
+            <td>{{o.date}}</td>
+            
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

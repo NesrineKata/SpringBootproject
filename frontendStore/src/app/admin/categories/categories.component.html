@@ -1,0 +1,50 @@
+<!--<h1>Categories Admin</h1>
+<a class="btn btn-primary mb-3" (click)="addCategory()">Add New Category</a>
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Libelle</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of categories">
+          <td>{{c.id}}</td>
+          <td>{{c.libelle}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="viewCategory(c.id)">Show Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <app-viewcategory *ngIf="action === 'view'" [c]="selectedCategory" (categoryDeletedEvent)="refreshData()"></app-viewcategory>
+    <app-addcategory *ngIf="action === 'add' || action === 'add'" [c]="selectedCategory" (categoryAddedEvent)="refreshData()"></app-addcategory>
+  </div>
+</div>-->
+<h1>Orders By users</h1>
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order Amount</th>
+          <th>Date</th>
+          <th>User</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of orders">
+          <td>{{c.amount}}</td>
+          <td>{{c.date}}</td>
+          <td>{{c?.user.username}}</td>
+         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

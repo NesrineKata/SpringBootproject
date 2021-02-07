@@ -1,0 +1,26 @@
+<h1>Add Product Admin</h1>
+
+<form  >
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Product Name" name="name" [(ngModel)]="p.productName" >
+
+  <label for="price">Price</label>
+  <input type="text" class="form-control" id="price" placeholder="Product price" name="price" [(ngModel)]="p.productPrice">
+
+  <label for="stck">Stock</label>
+  <input type="number" class="form-control" id="stck" placeholder="stock" name="stck" [(ngModel)]="p.stock">
+
+ <!--<select [(ngModel)]="selectedCat"  #device (change)="onChange($event, device.value)">
+ --> 
+ <select #selectElem (change)="onChange(selectElem.value)">
+  <option *ngFor="let c of categories" [value]="c.id">{{c.libelle}}</option>
+  </select>
+
+
+    <br>
+    <input type="text"    name="url" [(ngModel)]="p.url" (focusout)="onUrlChanged($event)">
+    <img *ngIf="imgURL" [src]="imgURL" height="200" width="200" >
+
+  <br>
+  <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product</button>
+</form>

@@ -1,31 +1,58 @@
 package tekup.de.storebook.model;
 
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @Table(name="product")
 public class Product {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "productid")
-	private int productId;
+	private long productId;
 	@Column(name = "productname")
     private String productName;
 	@Column(name = "productprice")
-    private String productPrice;
-   // @Column(name = "picbyte", length = 1000000000)
-	//private byte[] picByte;
+    private BigDecimal productPrice;
+	private int stock;
+	private int avaibility;
 	@Column(name="url")
 	private String url;
-	@Column(name = "idcategory")
-    private int  idCategory;
+	@ManyToOne
+	 @JoinColumn(name = "idcategory")
+	@JsonIgnore
+	private Category category;
+	@OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
+	@JsonIgnore
+	private List<ProductInOrder> orders;
+	public boolean equals(Product p) {
+		if(this.getProductId()==p.getProductId())
+				return true;
+		else
+				return false;
+	}
+	
+	
+
 
 }

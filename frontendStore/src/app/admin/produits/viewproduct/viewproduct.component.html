@@ -1,0 +1,28 @@
+<div >
+    <h2>Product details</h2>
+    <table>
+      <tr>
+        <td>Product Id</td>
+        <td>   {{p.productId}}</td>
+      </tr>
+      <tr>
+        <td>Producr Name</td>
+        <td>   {{p.productName}}</td>
+      </tr>
+      <tr>
+        <td>Product Price</td>
+        <td>   {{p.productPrice}} $</td>
+      </tr>
+      <tr>
+        <td>On Stock</td>
+        <td>   {{p.stock}} </td>
+      </tr>
+      
+      <tr>
+        <img class="item-image" src="{{p.url}}" alt="" />
+      </tr>
+
+    </table>
+    <br>
+    <a class="btn btn-small btn-danger" (click)="deleteProduct()"> delete</a>
+  </div>

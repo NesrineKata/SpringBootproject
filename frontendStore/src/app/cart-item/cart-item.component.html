@@ -1,0 +1,65 @@
+<div class="container">
+  <br>
+  <a  href="" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a><br>
+  <p style="padding-top: 10px"> To change Quantity, Edit Quantity and Click on Update button</p>
+  <table id="cart" class="table table-hover table-condensed table-borderless">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th></th>
+      </tr>
+    </thead>
+  
+  <!--
+    <div>
+    <ul > 
+      <li *ngFor="let c of products">
+         {{c.productName}}
+      </li>
+    </ul>
+    </div>
+  -->
+  
+ 
+    <tr *ngFor="let c of products">
+      <td>
+        {{c?.product.productName}}
+      </td>
+      <td>{{c?.product.productPrice}}$</td>
+      <td>
+
+        <div class="row">
+          <div class="col-6">
+            <input type="number" value="{{c.qnt}}" #quant>
+            <input type="hidden" value="0" #prod>
+          </div>
+      
+          <div class="col-6">
+            <button class="btn btn-info btn-sm">Update</button>
+          </div>
+        </div>
+      </td>
+      <td>
+       {{c.product.productPrice*c.qnt | number : '.2-2'}} $ 
+
+      </td>
+      <td>
+        <button class="btn btn-info btn-sm" (click)="delete(c)">Delete</button>
+      </td>
+    </tr>
+  
+ 
+  
+  </table>
+
+  <div class="row">
+    <div class="col-9">Total Sum : {{totalSum}}</div>
+    <div class="offset-1 col-2"><button type="button" class="btn btn-primary align-right"(click)="pay()" >Checkout <i
+          class="fa fa-angle-right"></i></button></div>
+
+  </div>
+
+</div>
